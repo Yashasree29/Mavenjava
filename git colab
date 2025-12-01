@@ -127,3 +127,18 @@ git reflog	View history of actions (lost commits recovery)
 git checkout <commit-id>	Restore a previous commit or branch
 git pull --rebase origin <branch>
 Update branch while keeping linear history
+
+
+1. Initialize Git in Your Local Project (if not already done)
+     Open a terminal in the root of your multi-folder project:
+  	cd /path/to/your/project
+  	git init
+git remote add origin https://github.com/yourusername/your-private-repo.git
+git add .
+git commit -m "Initial commit"
+. Push to the Private Repository 
+If the repo is new and empty, push like this from git bash:
+	git push -u origin master
+If you're using the main branch (GitHub default):
+	git push -u origin main
+You may be prompted to log in (via username/password or token).
