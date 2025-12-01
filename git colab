@@ -1,0 +1,71 @@
+WEEK 3 – LAB ACTION PLAN (Collaborative Coding, Conflicts & Patch)
+1. Creating an Organization (GitHub)
+Step 1: Go to GitHub → New Organization → Create a free organization.
+Step 2: Enter organization details → Next.
+Step 3: Add members → they accept the invite.
+Step 4: Set access permissions:
+    Settings → Member privileges → Base permissions → Write
+    Projects base permissions → Write
+Step 5: Create repository inside organization (private recommended).
+2. Sharing Repository with Collaborators
+Steps for Collaborator 1:
+- Go to repository → Settings → Collaborators
+- Add people → Collaborator 2 accepts the invitation
+
+Steps for Collaborator 2 (Git commands):
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+git remote -v
+git clone https://github.com/username/repository-name.git
+cd repository-name
+git checkout -b feature/your-feature-name
+git add .
+git commit -m "Add descriptive commit message"
+git push origin feature/your-feature-name
+
+Keeping branch updated:
+git checkout main
+git pull origin main
+git checkout feature/your-new-feature
+git merge main
+3. Forking and Pull Requests
+1. Visit public repo (Person1).
+2. Click Fork → repo copies to Person2.
+3. Clone the fork:
+   git clone https://github.com/your-username/awesome-project
+4. Make changes:
+   git add .
+   git commit
+   git push origin main
+5. Create Pull Request → Person1 reviews → Merge Pull Request
+4. Resolving Merge Conflicts
+Step 1: Check conflicts
+git status
+
+Step 2: Open conflicted file (shows <<<<<<<, =======, >>>>>>> markers)
+
+Step 3: Edit manually (choose/merge both versions) and remove markers.
+
+Step 4:
+git add filename.txt
+
+Step 5:
+git commit
+(Or: git rebase --continue)
+
+To cancel merge:
+git merge --abort
+5. Creating and Applying Patches
+1. Clone any public repo.
+2. Edit file → git add → git commit.
+3. View commit hash:
+git log
+4. Create patch:
+git format-patch -1 <commit-hash>
+(Produces: 0001-commit-message.patch)
+5. Send patch to owner.
+
+Owner applies patch:
+git apply my-changes.patch
+OR (for format-patch files):
+git am 0001-commit-message.patch
